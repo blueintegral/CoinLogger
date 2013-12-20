@@ -1,0 +1,1 @@
+Future rev: solder rechargable coin cell to reduce thickness and charge over USB.
