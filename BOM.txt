@@ -1,0 +1,27 @@
+Partlist
+
+Exported from CoinLogger.sch at 12/19/2013 10:44:44 PM
+
+EAGLE Version 6.2.0 Copyright (c) 1988-2012 CadSoft
+
+Assembly variant: 
+
+Part     Value           Device                  Package        Library  Sheet
+
+BAT2                     BATTERY20SMD            BATTCON_20MM   SparkFun 1
+C1       10uF            CAP0402-CAP             0402-CAP       SparkFun 1
+C2       0.1uF           CAP0402-CAP             0402-CAP       SparkFun 1
+C3       10uF            CAP0402-CAP             0402-CAP       SparkFun 1
+IC1      TINY11S         TINY11S                 SOIC8          atmel    1
+JP1      USB_MICROB_PLUG USB_MICROB_PLUG         MICRO-B-RA-SMT SparkFun 1
+JP2                      M061X06-SMD_EDGE_FEMALE 1X06-SMD_EDGE  SparkFun 1
+LED1                     LED0603                 LED-0603       SparkFun 1
+LED2                     LED0603                 LED-0603       SparkFun 1
+R1       68              RESISTOR0402-RES        0402-RES       SparkFun 1
+R2       68              RESISTOR0402-RES        0402-RES       SparkFun 1
+R3       470             RESISTOR0402-RES        0402-RES       SparkFun 1
+R4       1.5k            RESISTOR0402-RES        0402-RES       SparkFun 1
+R5       10k             RESISTOR0402-RES        0402-RES       SparkFun 1
+R6       470             RESISTOR0402-RES        0402-RES       SparkFun 1
+U$1      W25Q80BV        W25Q80BV                SOIC8          W25Q80BV 1
+U4       LIS331          LIS331                  LGA16-3MM      SparkFun 1
