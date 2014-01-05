@@ -22,5 +22,9 @@ Current State:
 --------------
 Version 1 of the boards has been fabbed and is being tested. Firmware is still being written. A program to pull data off the device over USB is also under development. 
 
+Fabbed v1 boards:
 ![Fabbed v1](http://i.imgur.com/1uSZR5D.jpg)
+
+Breadboarded circuit:
+
 ![Breadboarded circuit](http://i.imgur.com/qOhUhsW.jpg?1)
