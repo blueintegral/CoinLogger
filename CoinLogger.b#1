@@ -119,8 +119,8 @@
 <circle x="22" y="37" radius="13.038403125" width="0.4064" layer="25"/>
 <circle x="22" y="37" radius="13.038403125" width="0.4064" layer="26"/>
 <circle x="21.95" y="36.4" radius="17.4" width="0.2032" layer="20"/>
-<text x="24.7513375" y="48.5999625" size="0.6096" layer="26" rot="MR0">CoinLogger v1.1</text>
-<text x="23.65083125" y="47.64995" size="0.6096" layer="26" rot="MR0">01/04/14</text>
+<text x="24.7513375" y="48.5999625" size="0.6096" layer="26" rot="MR0">CoinLogger v1</text>
+<text x="23.65083125" y="47.64995" size="0.6096" layer="26" rot="MR0">12/19/13</text>
 <text x="22.400259375" y="46.699925" size="0.6096" layer="26" rot="MR0">HS</text>
 <text x="14.427734375" y="31.73209375" size="0.4064" layer="125" rot="R132.1">C1</text>
 <text x="12.04000625" y="29.931003125" size="0.4064" layer="125" rot="R131.2">C2</text>
