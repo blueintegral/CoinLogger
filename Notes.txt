@@ -1,13 +1,15 @@
 -Micro SD card slot was abandoned due to high power usage
 -Accelerometer was chosen because it could speak SPI and has low power consumption
 -Pretty cool that one device is CS and the other is \CS, huh? Got lucky.
+-When using an ATtiny as a SPI master, hook your MOSI signal to the DO pin, and MISO signal to the DI pin. When using an ATtiny as a SPI slave, hook your MOSI signal to the DI pin, and MISO signal to the DO pin.
+-Looked at using rechargable coin cell, but they have much lower mAh ratings than non rechargable, so I'm sticking with the non rechargables for now.
 
-
-Future rev: solder rechargable coin cell to reduce thickness and charge over USB.
 
 Version 1.1 changes:
 -Removed stop around vias so the battery doesn't short to them
--TODO: Fix USB port footprint so it has mechanical/ground pads
--TODO: Confirm DO/DI pins from device to ATTiny
--TODO: Update battery holder footprint to fit smaller area, so I don't have to grind anything off after fab.
+-Fixed USB port footprint so it has mechanical/ground pads
+-Fixed DO/DI pins from Flash and Accelerometer to ATTiny
+-Updated battery holder footprint to fit smaller area, so I don't have to grind anything off after fab.
 
+
+4 layer version? Might actually be cheaper if I can get it smaller.
