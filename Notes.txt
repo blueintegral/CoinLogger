@@ -10,6 +10,8 @@ Version 1.1 changes:
 -Fixed USB port footprint so it has mechanical/ground pads
 -Fixed DO/DI pins from Flash and Accelerometer to ATTiny
 -Updated battery holder footprint to fit smaller area, so I don't have to grind anything off after fab.
-
-
-4 layer version? Might actually be cheaper if I can get it smaller.
+-Fixed ISP programming header (add gnd, remove unneeded pins).
+-Moved stuff on RESET to another pin
+-Fixed CS pins
+-Fixed USB port
+-Removed interrupt from accelerometer

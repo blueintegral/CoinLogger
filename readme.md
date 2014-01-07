@@ -3,6 +3,8 @@ CoinLogger
 
 CoinLogger is a US Quarter sized data logging platform. The current incantation has an accelerometer on it and 8 MB of Flash storage. It is based on the ATTiny85 microcontroller and also includes a USB port for retrieving the captured data. It was designed with a small size and extremely low power consumption in mind.
 
+NanoLogger is a smaller version of CoinLogger, coming in at about the size of a dime, just over 15mm across. It doesn't have a USB port because there's no room. Instead, you need something like this: https://www.sparkfun.com/products/9235. The battery is smaller, so the battery life is substantially less, and programming and reading data off the device is done via small pads below the battery. This is best done with pogo pins, or you can solder to them. NanoLogger was designed to sacrifice some usability in exchange for an extremely small size.
+
 Uses:
 -----
 * Amateur rocketry
