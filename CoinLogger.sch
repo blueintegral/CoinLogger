@@ -3373,8 +3373,8 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <text x="33.02" y="73.66" size="1.778" layer="97">PB2: SCK</text>
 <text x="33.02" y="71.12" size="1.778" layer="97">PB3: CS</text>
 <text x="116.84" y="81.28" size="1.778" layer="97">PB4: LED is on by default since that line is pulled up because of USB</text>
-<text x="116.84" y="78.74" size="1.778" layer="97">It's also CS, so by default, the accel is selected, but Flash can also be selected if CS is driven low.</text>
-<text x="116.84" y="76.2" size="1.778" layer="97">If it's an input, we can look for the accel interrupt for ultra low power mode.</text>
+<text x="116.84" y="78.74" size="1.778" layer="97">If it's an input, we can look for the accel interrupt for ultra low power mode.</text>
+<text x="78.74" y="33.02" size="1.778" layer="97">(DNP)</text>
 </plain>
 <instances>
 <instance part="IC1" gate="G$1" x="38.1" y="53.34" smashed="yes">

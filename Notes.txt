@@ -15,3 +15,4 @@ Version 1.1 changes:
 -Fixed CS pins
 -Fixed USB port
 -Removed interrupt from accelerometer
+-Marked pullup for Flash as DNP, since it will screw up USB and I don't think it's actually needed.
