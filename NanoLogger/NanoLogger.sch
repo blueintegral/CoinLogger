@@ -512,8 +512,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 <wire x1="-6.096" y1="-3.302" x2="-6.096" y2="4.318" width="0.127" layer="21"/>
 <wire x1="3.81" y1="5.334" x2="-3.81" y2="5.334" width="0.127" layer="21" curve="-90"/>
 <smd name="GND" x="0" y="0" dx="3.9624" dy="3.9624" layer="1"/>
-<smd name="PWR@1" x="-7.874" y="0" dx="3.175" dy="3.175" layer="1"/>
-<smd name="PWR@2" x="7.874" y="0" dx="3.175" dy="3.175" layer="1"/>
+<smd name="PWR@1" x="-6.858" y="0" dx="1.3335" dy="3.7592" layer="1"/>
+<smd name="PWR@2" x="6.858" y="0" dx="1.3335" dy="3.7592" layer="1"/>
 </package>
 <package name="BATTCON_20MM_4LEGS">
 <wire x1="-7.5" y1="7.35" x2="7.5" y2="7.35" width="0.2032" layer="21"/>
