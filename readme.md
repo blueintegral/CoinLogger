@@ -29,6 +29,7 @@ Fabbed v1.1 CoinLogger:
 ![Assembled v1.1 back](http://i.imgur.com/N0dvxUg.png)
 
 Fabbed v1 NanoLogger:
+
 ![Assembled NanoLogger front](http://i.imgur.com/UW9NngH.png)
 ![Assembled NanoLogger back](http://i.imgur.com/5LeluEu.png)
 
