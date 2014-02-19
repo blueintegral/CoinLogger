@@ -24,11 +24,14 @@ Current State:
 --------------
 Version 1.1 of the boards has been fabbed and is being tested. Firmware is still being written. A program to pull data off the device over USB is also under development. 
 
-Fabbed v1 boards:
+Fabbed v1.1 CoinLogger:
 ![Assembled v1.1 front](http://i.imgur.com/WFPpeck.png)
 ![Assembled v1.1 back](http://i.imgur.com/N0dvxUg.png)
+Fabbed v1 NanoLogger:
 ![Assembled NanoLogger front](http://i.imgur.com/UW9NngH.png)
 ![Assembled NanoLogger back](http://i.imgur.com/5LeluEu.png)
+
+Old v1:
 
 ![Fabbed v1](http://i.imgur.com/1uSZR5D.jpg)
 
