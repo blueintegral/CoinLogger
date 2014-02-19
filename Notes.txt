@@ -16,3 +16,8 @@ Version 1.1 changes:
 -Fixed USB port
 -Removed interrupt from accelerometer
 -Marked pullup for Flash as DNP, since it will screw up USB and I don't think it's actually needed.
+
+
+-swap accel with mic and flash with cc1101, same form factor as nanologger
+cc430 with radio needs 2v. Energy harvester to get 2v?
+TPS62730 for better battery life

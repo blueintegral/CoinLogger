@@ -9,12 +9,12 @@
  */ 
 
 
-#define F_CPU 1000000UL
+#define F_CPU 9600000UL // Define software reference clock for delay duration
 #include <avr/io.h>
-#include <util/delay_basic.h>
+#include <stdlib.h>
+#include <util/delay.h>
 #include <inttypes.h>
 #include <avr/interrupt.h>
-#include <util/delay.h>
 
 
 #define LED PB3
@@ -34,17 +34,19 @@
 #undef   DDR_WRITE
 #define DDR_WRITE   0xE0
 
+
+
 //Prototypes
-void delay_ms(uint16_t ms);
 unsigned char spi(unsigned char val);
 void accel_read(void);
 void accel(void);
 void transferLong(unsigned int trans);
-////////////
 
 //Global Variables
-volatile double xaccel, yaccel, zaccel;
-///////////
+volatile double xaccel = 0;
+volatile double yaccel = 0;
+volatile double zaccel = 0;
+
 
 ISR(TIMER1_OVF_vect)
 {
@@ -58,7 +60,7 @@ void accel_read(){
 	//printf("x=%6.2f,", xaccel);
 	//printf("y=%6.2f,", yaccel);
 	//printf("z=%6.2f\n\r", zaccel);
-	}
+}
 
 void accel(void)
 {
@@ -83,15 +85,7 @@ void accel(void)
 	zaccel = SCALE*tempz;
 }
 
-void delay_ms(uint16_t ms){
-	while (ms > 0) {
-		_delay_loop_2(F_CPU/4000);
-		ms--;
-	}
-}
 
-	
-	
 unsigned char spi(unsigned char val)
 {
 	USIDR = val;
@@ -101,7 +95,8 @@ unsigned char spi(unsigned char val)
 	} while ((USISR & (1<<USIOIF)) == 0);
 	return USIDR;
 }
-/*#else
+
+/*	
 static void shft8bit(unsigned char val)
 {
 	unsigned char cnt;
@@ -113,7 +108,6 @@ static void shft8bit(unsigned char val)
 		sdp8_data &= ~SDP8_CLOCK;
 	}
 }
-#endif
 */
 
 void transferLong(unsigned int trans){
@@ -123,35 +117,39 @@ void transferLong(unsigned int trans){
 	spi((uint8_t)trans);
 }
 
+
 int main(void) {
-	// Set Pin 2 (PB3) as an output pin.
-	 DDRB |= _BV(LED);
-	 DDRB |= _BV(PB1); /* DO: Data out */
-	 DDRB |= _BV(PB2); /* USCK: USI clock */
-	 DDRB |= _BV(CS);
-	unsigned char testvar = 0b11111111;
-	// PORTB |= (1<<CS);     // pull-up i.e. disabled
 
-//BEGIN TEST PROCEDURE
-	PORTB |= 1 << LED; //Set LED high for 2 seconds initially.
-	delay_ms(2000);
-	PORTB &= ~(1 << LED); //Turn it off 
-	delay_ms(1000); //Give time to see that it has turned off
-	accel_read(); //Get data from accelerometer
-	if (xaccel && yaccel && zaccel) PORTB |= 1 << LED; //Set LED high for 2 seconds if we got nonzero data
-	delay_ms(2000);
-	PORTB &= ~(1 << LED); //Turn it off
-	delay_ms(1000); //Give time to see that it has turned off
-	
+	  const int msecsDelayPost = 100;
 
-	while(1) {
-		spi(testvar--);
-		// Set pin 2 high.
-		//if(testvar % 10) PORTB |= 1 << LED;
-		//delay_ms(100);
-		// Set pin 2 low.
-		//PORTB &= ~(1 << LED);
-		//delay_ms(100);
-	}
+	  // Set up Port B pin 4 mode to output
+	  DDRB = 1<<DDB3;
+	  DDRB |= _BV(LED);
+	  DDRB |= _BV(PB1); /* DO: Data out */
+	  DDRB |= _BV(PB2); /* USCK: USI clock */
+	  DDRB |= _BV(CS);
+	  // Set up Port B data to be all low
+	  PORTB = 0;
+
+	 // accel_read(); //Get data from accelerometer
+	  if (xaccel && yaccel && zaccel) PORTB |= 1 << LED; //Set LED high for 2 seconds if we got nonzero data
+	  unsigned char testvar = 0b11111111;
+	  while (1) {
+		  //Begin test procedure
+
+		  //PORTB ^= 1<<PB3;
+		  //_delay_ms (100);
+		  spi(testvar--);
+		  if(testvar % 10){
+			   PORTB |= 1 << LED;
+			   _delay_ms(10);
+		  } else {
+			  PORTB &= ~(1<<LED);
+			  _delay_ms(100);
+		  }
+		   
+		  
+	  }
+
 	return 0;
 }
