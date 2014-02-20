@@ -67,7 +67,8 @@ void accel(void)
 	uint16_t xl, xh, yl, yh, zl, zh;
 	int16_t tempx, tempy, tempz;
 	
-	cbi(PORTB, CS);
+	//cbi(PORTB, CS);
+	PORTB |= 1 << CS;
 	spi(0xe8); //read bit | consecutive measure bit | 0x28 = 0xe8
 	xl = spi(0x00); //must keep clock moving, so tx another byte
 	xh = spi(0x00); //must keep clock moving, so tx another byte
@@ -118,9 +119,12 @@ void transferLong(unsigned int trans){
 }
 
 
+
+
+
 int main(void) {
 
-	  const int msecsDelayPost = 100;
+	  //const int msecsDelayPost = 100;
 
 	  // Set up Port B pin 4 mode to output
 	  DDRB = 1<<DDB3;
@@ -131,7 +135,7 @@ int main(void) {
 	  // Set up Port B data to be all low
 	  PORTB = 0;
 
-	 // accel_read(); //Get data from accelerometer
+	  accel_read(); //Get data from accelerometer
 	  if (xaccel && yaccel && zaccel) PORTB |= 1 << LED; //Set LED high for 2 seconds if we got nonzero data
 	  unsigned char testvar = 0b11111111;
 	  while (1) {
