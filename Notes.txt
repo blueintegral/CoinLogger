@@ -4,6 +4,8 @@
 -When using an ATtiny as a SPI master, hook your MOSI signal to the DO pin, and MISO signal to the DI pin. When using an ATtiny as a SPI slave, hook your MOSI signal to the DI pin, and MISO signal to the DO pin.
 -Looked at using rechargable coin cell, but they have much lower mAh ratings than non rechargable, so I'm sticking with the non rechargables for now.
 
+Changes to be made for version 1.2:
+-Can't program with Flash and Accelerometer populated because their inputs on the same line have an impedance too low. Not sure if there's a way to fix this. Current workaround is to populate the ATTiny, program it, and then populate the rest of the parts. Testing and development is done on a breadboard with DIP parts.
 
 Version 1.1 changes:
 -Removed stop around vias so the battery doesn't short to them
