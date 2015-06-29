@@ -2066,43 +2066,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </deviceset>
 </devicesets>
 </library>
-<library name="ML621-TZ1">
-<packages>
-<package name="ML621-TZ1">
-<smd name="P$1" x="1.08" y="0.25" dx="0.5" dy="2.15" layer="1" rot="R90"/>
-<smd name="P$2" x="1.08" y="-1.25" dx="0.5" dy="2.15" layer="1" rot="R90"/>
-<text x="-1" y="0" size="0.6096" layer="21">+</text>
-</package>
-</packages>
-<symbols>
-<symbol name="ML621-TZ1">
-<pin name="P$1" x="0" y="-5.08" length="middle" rot="R90"/>
-<pin name="P$2" x="0" y="12.7" length="middle" rot="R270"/>
-<wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="5.08" x2="2.54" y2="5.08" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="7.62" x2="5.08" y2="7.62" width="0.254" layer="94"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="ML621-TZ1">
-<gates>
-<gate name="G$1" symbol="ML621-TZ1" x="0" y="7.62"/>
-</gates>
-<devices>
-<device name="" package="ML621-TZ1">
-<connects>
-<connect gate="G$1" pin="P$1" pad="P$2"/>
-<connect gate="G$1" pin="P$2" pad="P$1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2143,7 +2106,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="U$2" library="MX25U8035EZUI-10G" deviceset="MX25U8035EZUI-10G" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
-<part name="U$1" library="ML621-TZ1" deviceset="ML621-TZ1" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -2160,13 +2122,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <text x="83.82" y="-20.32" size="1.778" layer="97">Can turn on LED1 if accel above concussion threshold</text>
 <text x="83.82" y="-22.86" size="1.778" layer="97">Might also make a version with uSD card, but they're so power hungry...</text>
 <text x="83.82" y="-25.4" size="1.778" layer="97">Uses CR2032 coin cell</text>
-<text x="-40.64" y="66.04" size="1.778" layer="97">Digikey: SY103-ND</text>
-<text x="78.74" y="0" size="1.778" layer="97">Digikey: 1092-1055-ND</text>
 </plain>
 <instances>
 <instance part="GND1" gate="1" x="63.5" y="33.02"/>
 <instance part="GND7" gate="1" x="17.78" y="7.62"/>
-<instance part="GND2" gate="1" x="-12.7" y="48.26"/>
+<instance part="GND2" gate="1" x="-15.24" y="66.04"/>
 <instance part="U4" gate="G$1" x="-2.54" y="-12.7"/>
 <instance part="GND3" gate="1" x="-27.94" y="-30.48"/>
 <instance part="R3" gate="G$1" x="17.78" y="27.94" smashed="yes" rot="R90">
@@ -2233,7 +2193,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="GND10" gate="1" x="45.72" y="-20.32"/>
 <instance part="U$2" gate="G$1" x="81.28" y="2.54"/>
 <instance part="GND11" gate="1" x="106.68" y="5.08"/>
-<instance part="U$1" gate="G$1" x="-12.7" y="63.5" smashed="yes"/>
 </instances>
 <busses>
 </busses>
@@ -2246,8 +2205,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </segment>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
-<wire x1="-12.7" y1="58.42" x2="-12.7" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="P$1"/>
+<wire x1="-15.24" y1="76.2" x2="-15.24" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND3" gate="1" pin="GND"/>
@@ -2373,8 +2331,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="U1" gate="A" pin="VCC"/>
 <wire x1="53.34" y1="73.66" x2="53.34" y2="88.9" width="0.1524" layer="91"/>
 <junction x="53.34" y="88.9"/>
-<pinref part="U$1" gate="G$1" pin="P$2"/>
-<wire x1="-2.54" y1="76.2" x2="-12.7" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="-5.08" y1="76.2" x2="-2.54" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="P+1" gate="1" pin="VCC"/>
@@ -2441,6 +2398,13 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="U1" gate="A" pin="PB5"/>
 <wire x1="53.34" y1="45.72" x2="73.66" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="73.66" y1="45.72" x2="73.66" y2="48.26" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="R6" gate="G$1" pin="2"/>
+<pinref part="U1" gate="A" pin="PD5"/>
+<wire x1="5.08" y1="60.96" x2="17.78" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="ASCK" class="0">
@@ -2529,14 +2493,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="U1" gate="A" pin="PB1"/>
 <wire x1="53.34" y1="55.88" x2="58.42" y2="55.88" width="0.1524" layer="91"/>
 <label x="58.42" y="55.88" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="R6" gate="G$1" pin="2"/>
-<wire x1="5.08" y1="60.96" x2="5.08" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="U1" gate="A" pin="PD1"/>
-<wire x1="5.08" y1="73.66" x2="17.78" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

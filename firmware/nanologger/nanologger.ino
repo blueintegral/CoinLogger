@@ -1,13 +1,3 @@
-#include <TinyWireM.h>
-#include <USI_TWI_Master.h>
-
-//I2C stuff
-#define DS1621_ADDR   0x48              // 7 bit I2C address for DS1621 temperature sensor
-
-
-
-
-
 // tinySPI
 // Written by Nick Gammon
 // March 2013
@@ -65,34 +55,14 @@ const byte LATCH_PIN = 4;  //D4, pin 3
 const byte ENABLE_PIN = 3; //D3, pin 2 ALSO Slave Select
 
 
+int current_red = 0;
+int current_green = 0;
+int current_blue = 0;
+int step_time = 20;
 
 int command_mode = 1;
 
 void sendPacket(int, int, int);
-
-
-
-void Init_Accel(){ // Setup the DS1621 for one-shot mode
-  TinyWireM.beginTransmission(DS1621_ADDR);
-  TinyWireM.send(0xAC);                 // Access Command Register
-  TinyWireM.send(B00000001);            // Using one-shot mode for battery savings
-  //TinyWireM.send(B00000000);          // if setting continious mode for fast reads
-  TinyWireM.endTransmission();          // Send to the slave
-}
-
-
-void Get_Accel(){  // Get the temperature from a DS1621
-  TinyWireM.beginTransmission(DS1621_ADDR);
-  TinyWireM.send(0xEE);                 // if one-shot, start conversions now
-  TinyWireM.endTransmission();          // Send 1 byte to the slave
-  delay(750);                           // if one-shot, must wait ~750 ms for conversion
-  TinyWireM.beginTransmission(DS1621_ADDR);
-  TinyWireM.send(0xAA);                 // read temperature (for either mode)
-  TinyWireM.endTransmission();          // Send 1 byte to the slave
-  TinyWireM.requestFrom(DS1621_ADDR,1); // Request 1 byte from slave
-  tempC = TinyWireM.receive();          // get the temperature
-  tempF = tempC * 9 / 5 + 32;           // convert to Fahrenheit 
-}
 
 void setup() {
     pinMode(LATCH_PIN, OUTPUT);
@@ -100,17 +70,12 @@ void setup() {
     tinySPI::begin ();
     
     digitalWrite(LATCH_PIN, LOW);
-    digitalWrite(ENABLE_PIN, HIGH);  // Clear any garbage in the registers
+    digitalWrite(ENABLE_PIN, HIGH);  // Turn off shiftbright and clear any garbage in the registers
     delay(1000);
     digitalWrite(ENABLE_PIN, LOW);
     
     sendPacket(120,100,100);
     command_mode = 0;
-    
-    TinyWireM.begin();                    // initialize I2C lib
-    Init_Accel();                          // Setup accelerometer
-    delay (3000);
-    
 }
 
 void sendPacket(int red_val, int green_val, int blue_val)
@@ -129,13 +94,33 @@ void sendPacket(int red_val, int green_val, int blue_val)
     
 }
 
-
 void loop() {
     
-   
+    int red_target = random(0, 1023);
+    int green_target = random(0, 1023);
+    int blue_target = random(0, 1023);
+    
+    
+    while ((current_red != red_target) || (current_green != green_target) || (current_blue != blue_target))
+    {
+        if (current_red != red_target)
+        {
+            current_red = current_red + ((current_red < red_target)? 1 : -1);
+        }
+        if (current_green != green_target)
+        {
+            current_green = current_green + ((current_green < green_target)? 1 : -1);
+        }
+        if (current_blue != blue_target)
+        {
+            current_blue = current_blue + ((current_blue < blue_target)? 1 : -1);
+        }
+        
+            
         sendPacket(current_red, current_green, current_blue);        
         delay(step_time);
     }
     
     
 }
+
